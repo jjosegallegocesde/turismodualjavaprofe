@@ -27,9 +27,14 @@ public class Main {
                 System.out.println("ADIOS");
                 break;
             } else if (opcion == 1) {
-                System.out.print("Digite el nombre de la persona: ");
                 try {
+                    System.out.print("Digite el nombre de la persona: ");
                     persona.setNombres(leerDato.nextLine());
+
+                    System.out.print("Digite el correo de la persona: ");
+                    persona.setCorreo(leerDato.nextLine());
+
+
                 } catch (Exception error) {
                     System.out.println("\u001B[33m"+error.getMessage()+"\u001B[0m");
                 }

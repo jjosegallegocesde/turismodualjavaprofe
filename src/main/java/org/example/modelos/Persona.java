@@ -1,5 +1,8 @@
 package org.example.modelos;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Persona {
 
     private Integer id;
@@ -54,8 +57,15 @@ public class Persona {
         return correo;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCorreo(String correo) throws Exception {
+        String patronCorreo = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        Pattern pattern = Pattern.compile(patronCorreo);
+        Matcher matcher = pattern.matcher(correo);
+        if(matcher.matches()){
+            this.correo = correo;
+        }else{
+            throw new Exception("Revisa, el correo no es valido");
+        }
     }
 
     public Integer getUbicacion() {
